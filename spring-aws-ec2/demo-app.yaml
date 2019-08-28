@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  selector:
+    matchLabels:
+      run: demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: demo
+    spec:
+      containers:
+      - name: demo
+        image: demo:latest
+        ports:
+          - containerPort: 80

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  selector:
+    matchLabels:
+      run: demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: demo
+    spec:
+      containers:
+      - name: demo
+        image: 960562133150.dkr.ecr.us-east-1.amazonaws.com/eks-repo-84734:latest
+        ports:
+          - containerPort: 8080
